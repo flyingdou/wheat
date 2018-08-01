@@ -1,0 +1,121 @@
+@import "../../wxParse/wxParse.wxss";
+page{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wraper{
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: #FFF;
+}
+
+.swiper{
+  width: 100%;
+  height: 350rpx;
+}
+
+.swiper-image{
+  width: 100%;
+  height: 100%;
+}
+
+.introduce-text{
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #BBB;
+}
+
+.workDate-body{
+  padding: 10px;
+  color: #BBB;
+}
+
+.workDate-time{
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.workDate-time-title{
+  float: left;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #444;
+}
+
+.workDate-time-body{
+  float: right;
+  height: 20px;
+  line-height: 20px;
+}
+
+.workDate-week{
+  margin-top: 10rpx;
+  text-align: right;
+  font-size: 12px;
+}
+
+.project-title{
+  padding: 10px;
+  color: #444;
+  border-bottom: 1px solid #F0F0F2;
+}
+
+.project-body{
+  padding: 20rpx 2%;
+  overflow: hidden;
+}
+
+.project-item{
+  float: left;
+  margin-top: 20rpx;
+  margin-left: 4%;
+  overflow: hidden;
+}
+
+.project-image{
+  float: left;
+}
+
+.project-image > image{
+  width: 205.2rpx;
+  height: 125.1rpx;
+}
+
+.project-name{
+  text-align: center;
+  font-size: 24rpx;
+  color: #BBB;
+}
+
+.project-content{
+  float: right;
+  width: 60%;
+  color: #BBB;
+  font-size: 12px;
+}
+
+.goHome{
+  position: fixed;
+  bottom: 80px;
+  right: 0;
+  z-index: 1;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.goHome > image{
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.goHome > view{
+  text-align: center;
+  font-size: 10px;
+  color: #FFF;
+}

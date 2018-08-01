@@ -1,0 +1,170 @@
+page{
+    width: 100%;
+    height: 100%;
+}
+
+.wapper{
+  position: relative;
+}
+
+.weekDiv{
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    width: 90%;
+    padding: 20rpx 5%;
+    border-top: 2rpx solid #f0f2f2;
+    border-bottom: 2rpx solid #f0f2f2;
+    z-index: 1;
+    background: white;
+}
+
+.preDate{
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.toDay{
+   font-size: 32rpx;
+   color: #ff4401;
+   text-align: center;
+}
+
+.chooseDate{
+    font-size: 24rpx;
+    text-align: center;
+    color: #ff4401;
+}
+
+.fill{
+    position: fixed;
+    left: 0;
+    top: 80rpx;
+    width: 100%;
+    height: 20rpx;
+    padding-bottom: 4rpx;
+    background-color: #EFEFF1;
+    z-index: 1;
+}
+
+.courseList{
+    width: 100%;
+    height: auto;
+    margin-top: 100rpx;
+}
+
+.course{
+   height: auto;
+   padding: 20rpx;
+   border-top: 2rpx solid #f0f2f2;
+   overflow: hidden;
+}
+
+.course:last-child {
+    border-bottom: 2rpx solid #f0f2f2;
+}
+
+.coursePicDiv{
+  float: left;
+}
+
+
+.coursePic{
+  width: 100%;
+  height: 100%;
+}
+
+.right{
+   float: left;
+   margin-left: 20rpx;
+   overflow: hidden;
+   width: 65%;
+   position: relative;
+}
+
+.courseName{
+    font-size: 28rpx;
+}
+
+.value {
+    font-size: 24rpx;
+    color: #999999;
+    margin-top: 10rpx;
+}
+
+.price{
+  color: #ff4401;
+}
+
+.moneyUnit{
+   font-size: 20rpx;
+}
+
+.peoples{
+    position:absolute;
+    right: 0;
+    bottom: 16rpx;
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.toBeFull{
+    position: absolute;
+    right: 0;
+    background-color: #FE970F;
+    color: white;
+    font-size: 28rpx;
+    padding: 10rpx 18rpx;
+    border-radius: 10rpx;
+    margin-top:-120rpx;
+}
+
+.full{
+    position: absolute;
+    right: 0;
+    background-color: #E41D23;
+    color: white;
+    font-size: 28rpx;
+    padding: 10rpx 18rpx;
+    border-radius: 10rpx;
+    margin-top:-120rpx;
+}
+
+.hasNoData{
+    width: 100%;
+    height: 100%;
+}
+
+.noDataPicDiv{
+    width: 60rpx;
+    height: 60rpx;
+    margin: 0 auto;
+    margin-top: 60%;
+}
+
+.noDataPic{
+    width: 100%;
+    height: 100%;
+}
+
+.noDataFont{
+    font-size: 24rpx;
+    text-align: center;
+    color: #999999;
+}
+
+
+.login_button{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+}
+

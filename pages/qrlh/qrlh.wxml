@@ -1,0 +1,57 @@
+<!-- 引入过滤器 -->
+<wxs module="filter" src="../../utils/filters.wxs"></wxs>
+<view class='banner'>
+  <image src='{{filter.getPictureUrl("201805231647.png")}}' mode='aspectFill'>
+  </image>
+</view>
+<view class='hongbao'>
+  <view class='hongbao-left'>
+    <image src='{{filter.getPictureUrl("201805231648.png")}}' mode='aspectFill'>
+    </image>
+  </view>
+  <view class='hongbao-right'>
+    <view>
+      分享健身卡，成交后您可以获得{{awardRate}}%佣金！
+    </view>
+    <view class='hongbao-text-margin'>
+      请选择健身卡，点击分享，坐等佣金收入吧！
+    </view>
+  </view>
+</view>
+<view style='height:10px;background-color:#F0F0F2;'></view>
+<view class='oneCard-list'>
+  <view class='no-data-card' wx:if='{{cardList.length <= 0}}'>
+    <view class='no-data-image'>
+      <image src='https://www.ecartoon.com.cn/ecartoon-weixin/img/Look-not-happy@2x.png'>
+      </image>
+    </view>
+    <view class="noDataFont">
+      <view>暂无数据</view>
+      <view>去看看别的</view>
+    </view>
+  </view>
+  <view class='oneCard-body' wx:for='{{cardList}}' wx:key='' bindtap='selectProduct' data-index='{{index}}'>
+    <image src='{{filter.errorImage(item.image1)}}' class='onCard-image' 
+      mode='aspectFill'></image> 
+    <view class='oneCard-contant'>
+      <view class='onCard-info'>
+        <view class='onCard-name'>
+          {{item.name}}
+        </view>
+      </view>
+      <view class='onCard-price'>
+        {{item.cost}}元，有效期{{item.wellNum}}天
+      </view>
+      <view class='onCard-remark'>
+        {{item.freeProject}}
+      </view>
+    </view>
+    <image src='{{filter.getPictureUrl(item.selectImage)}}' mode='aspectFill' class='checkbox'>
+    </image>
+  </view>
+</view>
+<view class='share'>
+  <button class='share-button' open-type='share'>
+    分享给好友
+  </button>
+</view>

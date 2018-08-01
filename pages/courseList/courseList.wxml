@@ -1,0 +1,56 @@
+<!-- 引入过滤器 -->
+<wxs module="filter" src="../../utils/filters.wxs"></wxs>
+<!-- 页面开始 -->
+<view class="wapper">
+   <!-- weekDates -->
+   <view class="weekDiv">
+        <view class="weekDate" wx:for="{{currentWeek}}" wx:for-item="data" wx:for-index="index" >
+        <!-- 今天 -->
+             <view class="preDate toDay" wx:if="{{index == 0}}"  data-chooseDate="{{data.date}}" data-chooseindex="0"  bindtap="getChooseDayData" >{{data.mmdd}}</view>
+        <!-- 其他天 -->
+         <view class="{{dou_dates[index]}}" wx:else data-chooseDate="{{data.date}}" data-chooseindex="{{index}}" bindtap="getChooseDayData" >{{data.mmdd}}</view>
+        </view>
+   </view>
+
+<!-- 填充高度 -->
+<view class="fill"></view>
+
+<!-- 团体课程 -->
+<view class="courseList">
+      <!-- 有数据 -->
+      <view wx:for="{{courseList}}" wx:for-item="course" wx:for-index="index" class="course" wx:if="{{hasData == 1 }}" >
+          <view class="preCourse" bindtap="appointment" data-courseid="{{course.id}}" >
+                  <view class="coursePicDiv" style="width:{{pictureWidth}};height:{{pictureHeight}}" >
+                          <image src="{{filter.errorImage(course.image)}}" class="coursePic" mode="aspectFill"></image>
+                  </view>
+
+                  <!-- 右边的内容 -->
+                  <view class="right" style="height:{{pictureHeight}}">
+                              <view class="value">{{course.courseName}}</view>
+                              <view class="time value">时间 : {{course.startTime}}-{{course.endTime}} </view>
+                              <view class="fee value">会员：<text class='price'>{{filter.getPriceStr(course.vip_price)}}</text><text decode='{{true}}'>&nbsp;&nbsp;&nbsp;</text>非会员：<text class='price'>{{filter.getPriceStr(course.normol_price)}}</text></view>
+                              <view class="peoples">{{filter.toFixed(course.joinNum,0)}}人/{{filter.toFixed(course.total,0)}}人</view>
+                              <view class="full" wx:if="{{course.joinNum >= course.total}}" >满员</view>
+                              <view class="toBeFull" wx:else >预约</view>
+                  </view>
+               
+          </view>
+      </view>
+
+       <!-- 没有数据 -->
+      <view class="hasNoData" wx:if="{{hasData == 0}}" >
+             <view class="noData">
+                      <!-- 图像 -->
+                      <view class="noDataPicDiv">
+                          <image src="https://www.ecartoon.com.cn/ecartoon-weixin/img/Look-not-happy@2x.png" class="noDataPic"></image>
+                      </view>
+                      <view class="noDataFont">
+                          <view>暂无数据</view>
+                          <view>去看看别的</view>
+                      </view>  
+              </view>
+      </view>
+</view>
+
+
+</view>

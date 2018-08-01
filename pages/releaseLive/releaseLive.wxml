@@ -1,0 +1,79 @@
+<!-- 引入过滤器 -->
+<wxs module='filter' src='../../utils/filters.wxs'></wxs>
+<!-- 上传直播封面 -->
+<view class='upload-background' bindtap='bindUploadTap'>
+  <image src='{{filter.errorImage(live.liveImage)}}' mode='aspectFill' wx:if='{{live.liveImage}}'>
+  </image>
+  <view class='upload-tip' wx:if='{{!live.liveImage}}'>
+    点击上传直播封面
+  </view>
+</view>
+<view class='anchor-tip'>
+  主播在直播过程中请勿退出小程序，也不要让手机处于锁定（休眠）状态。以免影响直播流畅性
+</view>
+<view style='height:20rpx;background-color:#F0F0F2;'></view>
+<!-- 填写直播信息表单 -->
+<view class='form'>
+  <view class='form-row'>
+    <view class='form-cell-left'>
+      发起人
+    </view>
+    <view class='form-cell-right'>
+      <view class='user-info'>
+        <view class='user-name'>{{member.memberName}}</view>
+        <view class='user-mobilephone' wx:if='{{member.memberMobilePhone && member.mobileValid}}'>手机验证{{filter.getStarNumberStr(member.memberMobilePhone, 3, 4)}}
+        </view>
+        <view class='user-mobilephone' wx:if='{{!member.memberMobilePhone || !member.mobileValid}}'>点击验证手机号码
+        </view>
+        <button open-type='getPhoneNumber' bindgetphonenumber='bindPhoneNumberButtonTap'
+          class='phone-number-button' wx:if='{{!member.memberMobilePhone || !member.mobileValid}}'>
+        </button>
+      </view>
+      <view class='user-image'>
+        <image src='{{filter.errorImage(member.memberImage)}}' mode='aspectFill'>
+        </image>
+      </view>
+    </view>
+  </view>
+  <view class='form-row'>
+    <view class='form-cell-left'>
+      直播名称
+    </view>
+    <view class='form-cell-right'>
+      <input class='live-name' type='text' placeholder='请输入直播名称' bindinput='bindLiveNameInput'>
+      </input>
+    </view>
+  </view>
+  <view class='form-row'>
+    <view class='form-cell-left'>
+      直播开始时间
+    </view>
+    <view class='form-cell-right'>
+      <picker mode='multiSelector' value="{{dateTime}}" bindchange="changeDateTime" 
+        bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+        <view class="select-start-time">
+      {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+    </view>
+      </picker>
+    </view>
+  </view>
+  <view class='form-row'>
+    <view class='form-cell-left'>
+      直播收费
+    </view>
+    <view class='form-cell-right'>
+      <view class='metering'>
+        元
+      </view>
+      <input class='live-cost' type='number' placeholder='请输入价格(免费请写0)' bindinput='bindLiveCostInput'>
+      </input>
+    </view>
+  </view>
+</view>
+<view class='live-notice'>
+  <view class='live-notice-title'>主播公告</view>
+  <textarea class='live-notice-content' placeholder='请输入公告内容......' bindinput='bindLiveNoticeInput'>
+  </textarea>
+</view>
+<!-- 发起直播按钮 -->
+<view class='release-live' bindtap='bindReleaseLiveButtonTap'>确定</view>

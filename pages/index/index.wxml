@@ -1,0 +1,129 @@
+<!-- 引入过滤器 -->
+<wxs module="filter" src="../../utils/filters.wxs"></wxs>
+<!-- 引入富文本解析模板 -->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='wraper'>
+  <view class='clubInfo-wraper'>
+    <image src='{{filter.errorImage(club.banner)}}' mode='aspectFill' wx:if="{{club.banner}}">
+    </image>
+    <image src='{{filter.errorImage(club.image)}}' mode='aspectFill' wx:if="{{!club.banner}}">
+    </image>
+    <view class='clubInfo-block'>
+      <view class='clubInfo'>
+        <view class='clubInfo-left'>
+          <image src='{{base_picture_url}}/{{club.image}}' class='clubPhoto'  
+              mode='aspectFill' bindtap='clubRemark'></image>
+        </view>
+        <view class='clubInfo-right'>
+          <view class='clubName'>{{club.name}}</view>
+          <view class='functionButton'>
+            <view class='contactService' bindtap='contactService'>
+              联系客服
+              <button open-type='contact' class='openButton'></button>
+            </view>
+            <view class='applyDiv' wx:if='{{!memberStatus}}'>
+                <view class='addToClub' bindtap='apply'>申请加入</view>
+            </view>
+            <view class='addToClub' bindtap='relieve' wx:if='{{memberStatus}}'>
+              解除关系
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='clubInfo-bottom'>
+        <view class='clubAddress' bindtap='clubLocation'>
+          <image src='{{base_picture_url}}/address.png' class='address-icon'></image>
+          <view class='address'>地址：{{filter.overflow_hidden(club.address, 18)}}</view>
+        </view>
+        <view class='clubPhone' bindtap='call'>
+          <image src='{{base_picture_url}}/phone.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='clubFunction'>
+    <view class='signIn' bindtap='signIn'>
+      <image src='{{base_picture_url}}/201805042233.png' wx:if='{{!timer.start}}'></image>
+      <image src='https://www.ecartoon.com.cn/miniProgram/club/img/timer.png' 
+        wx:if='{{!timer.start}}' wx:if='{{timer.start}}'></image>
+      <view>{{timer.text}}</view>
+    </view>
+    <view class='clubRemark' bindtap='gotoPrivate'>
+      <image src='{{base_picture_url}}/201807090917.png'></image>
+      <view>私人定制</view>
+    </view>
+    <view class='memberRanking' bindtap='memberRanking'>
+      <image src='{{base_picture_url}}/201805042235.png'></image>
+      <view>会员排行</view>
+    </view>
+    <view class='live' bindtap='live'>
+      <image src='{{base_picture_url}}/201805042236.png'></image>
+      <view>健身讲堂</view>
+    </view>
+  </view>
+  <view style='height:10px;background-color:#F0F0F2;'></view>
+  <view class='clubTicket'>
+    <view class='ticketTitle'>
+      领券购卡
+    </view>
+    <view class='ticketBody'>
+      <view class='no-data-ticket' wx:if='{{ticketList.length <= 0}}'>
+        <view class='no-data-ticket-image'>
+          <image src='https://www.ecartoon.com.cn/ecartoon-weixin/img/Look-not-happy@2x.png'>
+          </image>
+        </view>
+        <view class="noDataFont">
+          <view>暂无数据</view>
+          <view>去看看别的</view>
+        </view>
+      </view>
+      <view class='ticket-scroll-wraper' style='width:{{scroll_box_weight}}%'>
+        <view class='ticket' wx:for='{{ticketList}}' wx:key='' bindtap='getTicket' 
+            data-index='{{index}}'>
+          <image src='{{base_picture_url}}/{{item.image}}' mode='aspectFill'></image>
+          <button class='phoneNumber' open-type='getPhoneNumber' style='z-index:{{getPhoneNumber}}'
+            bindgetphonenumber='getMobilePhone'>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style='height:10px;background-color:#F0F0F2;'></view>
+  <view class='oneCard'>
+    <view class='oneCard-title'>健身卡</view>
+    <view class='oneCard-list'>
+      <view class='no-data-card' wx:if='{{cardList.length <= 0}}'>
+        <view class='no-data-image'>
+          <image src='https://www.ecartoon.com.cn/ecartoon-weixin/img/Look-not-happy@2x.png'>
+          </image>
+        </view>
+        <view class="noDataFont">
+          <view>暂无数据</view>
+          <view>去看看别的</view>
+        </view>
+      </view>
+      <view class='oneCard-body' wx:for="{{cardList}}" wx:key='' 
+          bindtap='getOneCardDetail' data-index='{{index}}'>
+        <image src='{{filter.errorImage(item.image1)}}' class='onCard-image' 
+          mode='aspectFill' ></image> 
+        <view class='oneCard-contant'>
+          <view class='onCard-info'>
+            <view class='onCard-name'>
+              {{filter.overflow_hidden(item.name, 10)}}
+            </view>
+            <view class='sell-out'>
+              已售{{item.sell_out}}
+            </view>
+          </view>
+          <view class='onCard-price'>
+            <text style='font-size:10px;'>¥</text>
+            {{filter.toFixed(item.cost, 2)}}
+          </view>
+          <view class='onCard-remark'>
+            {{item.freeProject}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

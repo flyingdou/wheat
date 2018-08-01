@@ -1,0 +1,46 @@
+<!-- 引入过滤器 -->
+<wxs module="filter" src="../../utils/filters.wxs"></wxs>
+<view class='wraper'>
+  <view class="no-data no-data-left" wx:if="{{tickets.length == 0 && productId && productType}}">
+    <image src='https://www.ecartoon.com.cn/expert/img/mine/Look-not-happy.png'>
+    </image>
+    <view>没有适用当前商品的优惠券</view>
+  </view>
+  <view class="no-data" wx:if="{{tickets.length == 0 && !productId && !productType}}" >
+    <image src='https://www.ecartoon.com.cn/expert/img/mine/Look-not-happy.png'>
+    </image>
+    <view>暂无数据</view>
+    <view>先去看看别的</view>
+  </view>
+  <view class='ticket-list'>
+    <view class='ticket-li' wx:for="{{tickets}}" wx:key="ticket" bindtap='selectTicket' 
+        data-ticket='{{item}}'>
+      <view class='ticket-content'>
+        <view class='ticket-content-wraper'>
+          <view class='ticket-name'>
+            {{item.name}}
+          </view>
+          <view class='ticket-type'>
+            有效期至：{{item.useDate}} 
+            <text class='limitPrice'>满{{item.limitPrice}}元可用</text>
+          </view>
+          <view class='ticket-validity'>
+            适用俱乐部：{{filter.overflow_hidden(item.clubName, 8)}}
+          </view>
+        </view>
+      </view>
+      <view class='ticket-price'>
+        <image src='{{base_picture_url}}/{{item.backgroundImage}}'></image>
+        <view class='price-text'><text class="RMB" >¥</text>{{item.price}}</view>
+        <view class='goNow'>
+          立即使用
+        </view>
+      </view>
+    </view>
+  </view>
+
+ <!-- 激活优惠券按钮 -->
+ <!-- <view class="activeTicket-div" bindtap="activeTicket" wx:if='{{activeTicket}}'>
+     <view class="activeTicket" >激活优惠券</view>
+ </view> -->
+</view>

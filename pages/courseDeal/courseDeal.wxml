@@ -1,0 +1,84 @@
+<!-- 引入过滤器 -->
+<wxs module="filter" src="../../utils/filters.wxs"></wxs>
+<!-- 页面开始 -->
+<view class="page">
+       <!-- 内容展示区 -->
+       <view class="content">
+             <!-- 教练头像、名称 -->
+             <view class="pre">
+                 <view class="title coachNameTitle">教练</view>
+                 <view class="coachImageDiv">
+                     <image class="coachImage" mode='aspectFill' src="{{filter.errorImage(course.image)}}"></image>
+                     <text class="value coachName">{{course.coachName}}</text>
+                 </view>
+                 
+             </view>
+
+            <!-- 课程 -->
+             <view class="pre">
+                 <view  class="title">课程</view>
+                 <view class="value">{{course.courseName}}</view>
+             </view>
+
+             <!-- 开始时间 -->
+             <view class="pre">
+                 <view  class="title">开始时间</view>
+                 <view class="value">
+                      {{course.planDate}}<text decode='true'>&nbsp;&nbsp;</text>{{course.startTime}}
+                 </view>
+             </view>
+
+             <!-- 结束时间 -->
+             <view class="pre">
+                 <view  class="title">结束时间</view>
+                 <view class="value">
+                      {{course.planDate}}<text decode='true'>&nbsp;&nbsp;</text>{{course.endTime}}
+                 </view>
+             </view>
+
+             <!-- 课程地点 -->
+             <view class="pre">
+                 <view  class="title">课程地点</view>
+                 <view class="value">{{course.clubName}}</view>
+             </view>
+
+             <!-- 价格 -->
+             <view class='pre'>
+                  <view class='title'>价格</view>
+                  <!-- vip价格 -->
+                  <view class='value' wx:if="{{course.isVip == true}}">{{filter.getPriceStr(course.vip_price)}}</view>
+                  <!-- 非会员价 -->
+                  <view class='value' wx:if="{{course.isVip == false}}">{{filter.getPriceStr(course.normol_price)}}</view>
+             </view>
+
+       </view>
+
+       <!-- 注意事项 -->
+       <view class='memos'>
+             <view class='title reminders'>注意事项</view>
+             <!-- 第一行 -->
+             <view class='preLine'>1.购买课程后，请在开课前十分到俱乐部完成签到。</view>
+             <!-- 第二行 -->
+             <view class='preLine'>2.签到方式： 进入俱乐部打开小程序，点击首页“健身打卡”按钮进行签到。</view>
+             <!-- 第三行 -->
+             <view class='preLine' wx:if="{{course.memo != '' && course.memo != 'null'}}" ><text>3.</text>{{course.memo}}<text>。</text></view> 
+       </view>
+
+      <!-- 满员就不显示按钮了 -->
+      <view wx:if="{{course.joinNum < course.total}}">
+            <!-- 确定按钮 -->
+            <form class='submitDiv' report-submit='true' bindsubmit='submitAppointment' wx:if='{{isFree}}'>
+                      <button class='submitButton' form-type='submit'></button>
+            </form>
+
+            <view class="sure" wx:if='{{isFree}}' >
+                        预约
+            </view>
+
+            <!-- 支付按钮 -->
+            <view class='sure' wx:if="{{!isFree}}" bindtap='gotoBuy'>
+                支付
+            </view>
+      </view>
+
+</view>

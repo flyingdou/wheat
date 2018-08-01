@@ -1,0 +1,294 @@
+@import "../../wxParse/wxParse.wxss";
+page{
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.head{
+   position: relative;
+   width: 100%;
+   height: auto;
+}
+
+.headImgDiv{
+  width: 100%;
+  height: 360rpx;
+}
+
+.headImg{
+  width: 100%;
+  height: 100%;
+}
+
+.prod{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background: rgba(109, 105, 101, 0.7);
+  overflow: hidden;
+}
+
+.left{
+  float: left;
+  left: 0;
+  bottom: 0;
+}
+
+.right{
+  float: right;
+  right: 0;
+  bottom: 0;
+}
+
+.prodName{
+   font-size: 28rpx;
+   color: white;
+   padding: 20rpx 0;
+   margin-left: 20rpx;
+}
+
+ .more{
+  width: 22.4rpx;
+  height: 39.2rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
+
+.moreIcon{
+  width: 100%;
+  height: 100%;
+} 
+
+
+.countdown{
+  width: 100%;
+  height: auto;
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.time{
+  background: #FF0000;
+  color: white;
+  padding: 0 10rpx;
+  margin: 0 10rpx;
+}
+
+.priceBlock{
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-bottom: 2rpx solid #f0f2f2;
+  padding-bottom: 20rpx;
+}
+
+.price{
+  float: left;
+  left: 0;
+  bottom: 0;
+  width: 32%;
+  height: auto;
+  text-align: center;
+}
+
+.fillLine1{
+  position: absolute;
+  top: 20%;
+  left: 33%;
+  width: 2rpx;
+  height: 50%;
+  background: #f0f2f2;
+}
+
+.fillLine2{
+  position: absolute;
+  top: 20%;
+  left: 66%;
+  width: 2rpx;
+  height: 50%;
+  background: #f0f2f2;
+}
+
+.title{
+  font-size: 32rpx;
+  padding: 20rpx 0;
+}
+
+.money{
+  font-size: 28rpx;
+  color: #FF3E00;
+}
+
+.funButtons{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 30rpx 0;
+}
+
+.buyDiv{
+  width: 50%;
+  height: auto;
+}
+
+.buy{
+  width: 70%;
+  margin:0 auto;
+  font-size: 28rpx;
+  color: white;
+  padding: 10rpx 0;
+  background: #FFDD00;
+  text-align: center;
+  border-radius: 5rpx;
+}
+
+.help{
+  width: 70%;
+  margin:0 auto;
+  font-size: 28rpx;
+  color: white;
+  padding: 10rpx 0;
+  background: #FF4401;
+  text-align: center;
+  border-radius: 5rpx;
+}
+
+.cutpriceDiv{
+  width: 50%;
+  height: auto;
+}
+
+.cutprice{
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  font-size: 28rpx;
+  color: white;
+  padding: 10rpx 0;
+  background: #FF4401;
+  text-align: center;
+  border-radius: 5rpx; 
+}
+
+.findHelp{
+   font-size: 28rpx;
+   color: white;
+}
+
+.swiper-tab{
+    padding: 0 20rpx;
+    overflow: hidden;
+    border-top: 2rpx solid #f0f2f2;
+    border-bottom: 2rpx solid #f0f2f2; 
+}
+
+swiper-item{
+   overflow: scroll;
+}
+
+.swiper-tab-item{
+    float:  left;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 28rpx 0;
+    height: auto;
+    font-size: 32rpx;
+    color: black;
+    text-align: center;
+}
+
+.active{
+    color: #FE970F;
+    border-bottom: 4rpx solid #FE970F;
+}
+
+.douFill{
+  width: 100%;
+  height: 20rpx;
+}
+
+
+.remark{
+  padding: 20rpx; 
+  font-size: 28rpx;
+  color: #444;
+}
+
+.pre{
+  padding: 20rpx;
+  border-bottom: 2rpx dashed #999999;
+  overflow: hidden;
+}
+
+
+.userImageDiv{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.userImage{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.cutMoney{
+  font-size: 28rpx;
+  color: #999999;
+  margin-left: 10rpx;
+  line-height: 50rpx;
+}
+
+.currentMoney{
+  font-size: 28rpx;
+  color: #FE970F;
+  margin-left: 10rpx;
+}
+
+.douFillx{
+  width: 100%;
+  height: 20rpx;
+  background: #f0f2f2;
+}
+
+
+.shareButton{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+.shareButton::after{
+  border: none;
+}
+
+.goHome{
+  position: fixed;
+  bottom: 80px;
+  right: 0;
+  z-index: 1;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.goHome > image{
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.goHome > view{
+  text-align: center;
+  font-size: 10px;
+  color: #FFF;
+}
