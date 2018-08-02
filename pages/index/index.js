@@ -479,13 +479,9 @@ Page({
       url: '../memberRanking/memberRanking' 
     });
   },
-  // 健身直播
-  live: function(){
-    // var url = '../video/video';
-    var url = '../live/live';
-    if (this.data.club.status == 1) {
-      url = '../live/live';
-    }
+  // 健身视频
+  video: function(){
+    var url = '../video/video';
     wx.navigateTo({
       url: url
     });
