@@ -1,0 +1,90 @@
+<!-- 引入过滤器 -->
+<wxs module='filter' src='../../utils/filters.wxs'></wxs>
+<!-- 上传直播封面 -->
+<view class='upload-background' bindtap='bindUploadTap'>
+  <image src='{{filter.errorImage(live.liveImage)}}' mode='aspectFill' wx:if='{{live.liveImage}}'>
+  </image>
+</view>
+<view style='height:20rpx;background-color:#F0F0F2;'></view>
+<!-- 填写直播信息表单 -->
+<view class='form'>
+  <view class='form-row'>
+    <view class='form-cell-left'>
+      发起人
+    </view>
+    <view class='form-cell-right'>
+      <view class='user-info'>
+        <view class='user-name'>{{anchor.memberName}}</view>
+        <view class='user-mobilephone' wx:if='{{anchor.memberMobilePhone && anchor.mobileValid}}'>手机验证{{filter.getStarNumberStr(anchor.memberMobilePhone, 3, 4)}}
+        </view>
+        <view class='user-mobilephone' wx:if='{{!anchor.memberMobilePhone || !anchor.mobileValid}}'>点击验证手机号码
+        </view>
+        <button open-type='getPhoneNumber' bindgetphonenumber='bindPhoneNumberButtonTap'
+          class='phone-number-button' wx:if='{{!anchor.memberMobilePhone || !anchor.mobileValid}}'>
+        </button>
+      </view>
+      <view class='user-image'>
+        <image src='{{filter.errorImage(anchor.memberImage)}}' mode='aspectFill'>
+        </image>
+      </view>
+    </view>
+  </view>
+  <view class='form-row'>
+    <view class='form-cell-left'>
+      直播名称
+    </view>
+    <view class='form-cell-right form-cell-right-font'>
+      {{live.liveName}}
+    </view>
+  </view>
+  <view class='form-row'>
+    <view class='form-cell-left'>
+      直播开始时间
+    </view>
+    <view class='form-cell-right'>
+      <picker mode='multiSelector' value="{{dateTime}}" bindchange="changeDateTime" 
+        bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+        <view class="select-start-time">
+          {{live.startTime}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='form-row'>
+    <view class='form-cell-left'>
+      直播收费
+    </view>
+    <view class='form-cell-right form-cell-right-font'>
+        {{live.liveCost}} 元
+    </view>
+  </view>
+</view>
+<view class='live-notice'>
+  <view class='live-notice-title'>直播公告</view>
+  <view class='live-notice-content'>{{live.liveNotice}}</view>
+</view>
+<!-- 登录直播按钮 -->
+<view class='release-live' bindtap='bindLoginButtonTap' wx:if='{{isLogin}}'>
+  <view class='button-block'>
+    登录
+    <button class='button' open-type='getUserInfo' bindgetuserinfo='bindLoginButtonTap'></button>
+  </view>
+</view>
+<!-- 进入直播间按钮 -->
+<view class='release-live' bindtap='bindLiveDetailButtonTap' wx:if='{{!isLogin && !checkMobilePhone}}'>
+  进入直播间
+</view>
+<!-- 验证手机号按钮 -->
+<view class='release-live' wx:if='{{!isLogin && checkMobilePhone}}'>
+  <view class='button-block'>
+    进入直播间
+    <button class='button' open-type='getPhoneNumber' bindgetphonenumber='bindPhoneNumberButtonTap'>
+    </button>
+  </view>
+</view>
+
+<!-- 分享页面，回到首页按钮 -->
+<view class='goHome' bindtap='goHome' wx:if='{{source}}'>
+  <image src='{{filter.getPictureUrl("201805241551.png")}}'></image>
+  <view>前往主页</view>
+</view>

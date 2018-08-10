@@ -56,7 +56,7 @@
       <image src='{{base_picture_url}}/201805042235.png'></image>
       <view>会员排行</view>
     </view>
-    <view class='live' bindtap='video'>
+    <view class='live' bindtap='live'>
       <image src='{{base_picture_url}}/201805042236.png'></image>
       <view>健身视频</view>
     </view>

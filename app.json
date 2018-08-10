@@ -7,6 +7,10 @@
     "pages/introduce/introduce",
     "pages/projectList/projectList",
     "pages/video/video",
+    "pages/live/live",
+    "pages/liveShare/liveShare",
+    "pages/liveDetail/liveDetail",
+    "pages/releaseLive/releaseLive",
     "pages/memberRanking/memberRanking",
     "pages/product/product",
     "pages/clubList/clubList",
@@ -22,6 +26,10 @@
     "pages/myFooter/myFooter",
     "pages/memberEvaluate/memberEvaluate",
     "pages/qrlh/qrlh",
+    "pages/privateProduct/privateProduct",
+    "pages/planProduct/planProduct",
+    "pages/remark/remark",
+    "pages/coachService/coachService",
     "pages/courseList/courseList",
     "pages/courseDeal/courseDeal",
     "pages/mine/mine",
@@ -34,7 +42,11 @@
     "pages/planDetail/planDetail",
     "pages/private/private",
     "pages/setting/setting",
-    "pages/priceCutdown/priceCutdown"
+    "pages/priceCutdown/priceCutdown",
+    "pages/coachList/coachList",
+    "pages/coachDetail/coachDetail",
+    "pages/coachCourseList/coachCourseList",
+    "pages/coachCourseDeal/coachCourseDeal"
     
 
   ],
@@ -58,6 +70,12 @@
         "text": "课程表",
         "iconPath": "icon/courseList.png",
         "selectedIconPath": "icon/courseList_selected.png"
+      },
+      {
+        "pagePath": "pages/coachList/coachList",
+        "text": "教练团队",
+        "iconPath": "icon/coach.png",
+        "selectedIconPath": "icon/coach_selected.png"
       },
       {
         "pagePath": "pages/active/active",

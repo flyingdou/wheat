@@ -479,8 +479,8 @@ Page({
       url: '../memberRanking/memberRanking' 
     });
   },
-  // 健身视频
-  video: function(){
+  // 健身直播
+  live: function(){
     var url = '../video/video';
     wx.navigateTo({
       url: url
@@ -586,5 +586,14 @@ Page({
     wx.navigateTo({
       url: '../product/product'
     });
+  },
+
+  /**
+   * 测试页面
+   */
+  test: function () {
+    wx.navigateTo({
+      url: '../coachDetail/coachDetail'
+    })
   }
 })

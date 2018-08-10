@@ -11,16 +11,19 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.1",
+	"libVersion": "1.9.98",
 	"appid": "wxa2acbd0c874f04a3",
-	"projectname": "wheat",
-	"isGameTourist": false,
+	"projectname": "club",
 	"condition": {
 		"search": {
 			"current": -1,
 			"list": []
 		},
 		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
 			"current": -1,
 			"list": []
 		},

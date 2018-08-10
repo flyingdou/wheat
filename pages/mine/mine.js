@@ -58,6 +58,18 @@ Page({
         ticketId: options.ticketId
       });
     }
+
+    if (options.coachId) {
+      objx.setData({
+        coachId: options.coachId
+      });
+    }
+
+    if (options.planId) {
+      objx.setData({
+        planId: options.planId
+      });
+    }
   },
 
   /**
@@ -339,7 +351,7 @@ Page({
               objx.getMemberData();
             } else {
               // 跳转到来时的页面
-                if (source == "courseList" || source == "active" || source == "index") {
+                if (source == "courseList" || source == "active" || source == "index" || source == "coachList") {
                     wx.switchTab({
                       url: '../../pages/' + source + '/' + source 
                     })
@@ -366,6 +378,18 @@ Page({
                 } else if (source == "ticketDetail") {
                   wx.navigateTo({
                     url: '../../pages/' + source + '/' + source + '?shareMember=' + objx.data.shareMember + '&ticketId=' + objx.data.ticketId,
+                  })
+                } else if (source == "coachDetail") {
+                  wx.navigateTo({
+                    url: '../../pages/' + source + '/' + source + '?coachId=' + objx.data.coachId + '&source=1'
+                  })
+                } else if (source == "privateProduct") {
+                  wx.navigateTo({
+                    url: '../../pages/' + source + '/' + source + '?productId=' + objx.data.productId + '&source=1'
+                  })
+                } else if (source == "planProduct") {
+                  wx.navigateTo({
+                    url: '../../pages/' + source + '/' + source + '?planId=' + objx.data.planId + '&source=1'
                   })
                 } else {
                     wx.navigateTo({
